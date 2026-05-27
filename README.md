@@ -34,7 +34,7 @@ $client = LibrariesIoClient::new();
 // or manually provide the API token from https://libraries.io/account
 $client = LibrariesIoClient::new('Valid40CharactersLongNonEmptyTokenString');
 
-$response = $client->get('/search', [
+$response = $client->get('search', [
  'platforms' => 'Packagist',
  'q' => 'ghostwriter/container',
  'per_page' => 30, // default is 30, max is 100
@@ -52,21 +52,21 @@ The client supports these [API methods](https://libraries.io/api):
 
 ```php
 // Platforms: Get a list of supported package managers.
-$client->get('/platforms');
+$client->get('platforms');
 // Project: Get information about a package and its versions.
-$client->get('/Packagist/ghostwriter/container');
+$client->get('Packagist/ghostwriter/container');
 // Project Dependencies: Get a list of dependencies for a version of a project, pass latest to get dependency info for the latest available version
-$client->get('/Packagist/ghostwriter/container/dependencies');
+$client->get('Packagist/ghostwriter/container/dependencies');
 // Project Dependents: Get packages that have at least one version that depends on a given project.
-$client->get('/Packagist/ghostwriter/container/dependents');
+$client->get('Packagist/ghostwriter/container/dependents');
 // Project Dependent Repositories: Get repositories that depend on a given project.
-$client->get('/Packagist/ghostwriter/container/dependent_repositories');
+$client->get('Packagist/ghostwriter/container/dependent_repositories');
 // Project Contributors: Get users that have contributed to a given project.
-$client->get('/Packagist/ghostwriter/container/contributors');
+$client->get('Packagist/ghostwriter/container/contributors');
 // Project SourceRank: Get breakdown of SourceRank score for a given project.
-$client->get('/Packagist/ghostwriter/container/sourcerank');
+$client->get('Packagist/ghostwriter/container/sourcerank');
 // Project Search: Search for projects by name
-$client->get('/search', [
+$client->get('search', [
     'q' => 'ghostwriter/container',
     'keywords' => 'container',
     'platforms' => 'Packagist',
@@ -74,33 +74,33 @@ $client->get('/search', [
     'licenses' => 'BSD-3-Clause',
 ]);
 // Repository: Get info for a repository. (only works for open source repositories)
-$client->get('/github/ghostwriter/container');
+$client->get('github/ghostwriter/container');
 // Repository Dependencies: Get a list of dependencies for all of a repository's projects. (only works for open source repositories)
-$client->get('/github/ghostwriter/container/dependencies');
+$client->get('github/ghostwriter/container/dependencies');
 // Repository Projects: Get a list of packages referencing the given repository.
-$client->get('/github/ghostwriter/container/projects');
+$client->get('github/ghostwriter/container/projects');
 // User: Get information for a given user or organization.
-$client->get('/github/ghostwriter');
+$client->get('github/ghostwriter');
 // User Repositories: Get repositories owned by a user.
-$client->get('/github/ghostwriter/repositories');
+$client->get('github/ghostwriter/repositories');
 // User Packages: Get a list of packages referencing the given user's repositories.
-$client->get('/github/ghostwriter/projects');
+$client->get('github/ghostwriter/projects');
 // User Packages Contributions: Get a list of packages that the given user has contributed to.
-$client->get('/github/ghostwriter/project-contributions');
+$client->get('github/ghostwriter/project-contributions');
 // User Repository Contributions: Get a list of repositories that the given user has contributed to.
-$client->get('/repositories/github/ghostwriter/repository-contributions');
+$client->get('repositories/github/ghostwriter/repository-contributions');
 // User Dependencies: Get a list of unique packages that the given user's repositories list as a dependency. Ordered by frequency of use in those repositories.
-$client->get('/dependencies/github/ghostwriter/dependencies');
+$client->get('dependencies/github/ghostwriter/dependencies');
 // User Subscriptions: List packages that a user is subscribed to receive notifications about new releases.
-$client->get('/subscriptions/Packagist/ghostwriter/container');
+$client->get('subscriptions/Packagist/ghostwriter/container');
 // Subscribe to a project: Subscribe to receive notifications about new releases of a project.
-$client->post('/subscriptions/Packagist/ghostwriter/container');
+$client->post('subscriptions/Packagist/ghostwriter/container');
 // Check if subscribed to a project: Check if a users is subscribed to receive notifications about new releases of a project.
-$client->get('/subscriptions/Packagist/ghostwriter/container');
+$client->get('subscriptions/Packagist/ghostwriter/container');
 // Update a subscription: Update the options for a subscription.
-$client->put('/subscriptions/Packagist/ghostwriter/container');
+$client->put('subscriptions/Packagist/ghostwriter/container');
 // Unsubscribe from a project: Stop receiving release notifications from a project.
-$client->delete('/subscriptions/Packagist/ghostwriter/container');
+$client->delete('subscriptions/Packagist/ghostwriter/container');
 ```
 
 ### Notes
