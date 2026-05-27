@@ -5,6 +5,6 @@ declare(strict_types=1);
 namespace Ghostwriter\LibrariesIo\Exception;
 
 use Ghostwriter\LibrariesIo\Interface\ExceptionInterface;
-use LogicException;
+use InvalidArgumentException;
 
-final class ShouldNotHappenException extends LogicException implements ExceptionInterface {}
+final class InvalidAPIKeyException extends InvalidArgumentException implements ExceptionInterface {}

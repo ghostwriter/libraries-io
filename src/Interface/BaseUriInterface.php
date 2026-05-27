@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Ghostwriter\LibrariesIo\Interface;
 
-use Throwable;
-
-interface ExceptionInterface extends Throwable {}
+interface BaseUriInterface
+{
+    public function toString(): string;
+}

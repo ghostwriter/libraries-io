@@ -1,11 +1,20 @@
 {
-    "name": "ghostwriter/wip",
-    "description": "Here be dragons",
+    "name": "ghostwriter/libraries-io",
+    "description": "A libraries.io API Client for PHP",
     "license": "BSD-3-Clause",
     "type": "library",
     "keywords": [
         "ghostwriter",
-        "wip"
+        "libraries-io",
+        "php",
+        "client",
+        "api",
+        "psr7",
+        "psr11",
+        "psr14",
+        "psr17",
+        "psr18",
+        "psr20"
     ],
     "authors": [
         {
@@ -15,12 +24,12 @@
             "role": "Developer"
         }
     ],
-    "homepage": "https://github.com/ghostwriter/wip",
+    "homepage": "https://github.com/ghostwriter/libraries-io",
     "support": {
-        "issues": "https://github.com/ghostwriter/wip/issues",
-        "source": "https://github.com/ghostwriter/wip",
-        "rss": "https://github.com/ghostwriter/wip/releases.atom",
-        "security": "https://github.com/ghostwriter/wip/security/advisories/new"
+        "issues": "https://github.com/ghostwriter/libraries-io/issues",
+        "source": "https://github.com/ghostwriter/libraries-io",
+        "rss": "https://github.com/ghostwriter/libraries-io/releases.atom",
+        "security": "https://github.com/ghostwriter/libraries-io/security/advisories/new"
     },
     "funding": [
         {
@@ -61,7 +70,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Ghostwriter\\Wip\\": "src"
+            "Ghostwriter\\LibrariesIo\\": "src"
         }
     },
     "autoload-dev": {
@@ -99,12 +108,12 @@
     "extra": {
         "ghostwriter": {
             "container": {
-                "provider": ["Ghostwriter\\Wip\\Container\\WipProvider"]
+                "provider": ["Ghostwriter\\LibrariesIo\\Container\\LibrariesIoProvider"]
             }
         },
         "thanks": {
-            "name": "ghostwriter/wip",
-            "url": "https://github.com/ghostwriter/wip"
+            "name": "ghostwriter/libraries-io",
+            "url": "https://github.com/ghostwriter/libraries-io"
         }
     },
     "scripts": {
