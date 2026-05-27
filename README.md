@@ -5,11 +5,7 @@
 [![Supported PHP Version](https://badgen.net/packagist/php/ghostwriter/libraries-io?color=8892bf)](https://www.php.net/supported-versions)
 [![Downloads](https://badgen.net/packagist/dt/ghostwriter/libraries-io?color=blue)](https://packagist.org/packages/ghostwriter/libraries-io)
 
-A libraries.io API Client for PHP
-
-> [!WARNING]
->
-> This project is not finished yet, work in progress.
+A libraries.io API Client for PHP.
 
 ## Installation
 
