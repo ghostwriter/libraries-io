@@ -6,6 +6,7 @@ namespace Tests\Unit\Container;
 
 use Ghostwriter\Container\Interface\BuilderInterface;
 use Ghostwriter\Container\Interface\ContainerInterface;
+use Ghostwriter\Container\Interface\Service\ProviderInterface;
 use Ghostwriter\Container\Service\Provider\AbstractProvider;
 use Ghostwriter\LibrariesIo\Container\LibrariesIoProvider;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -25,6 +26,12 @@ final class LibrariesIoProviderTest extends AbstractTestCase
     public function testExtendsAbstractProvider(): void
     {
         self::assertTrue(is_a(LibrariesIoProvider::class, AbstractProvider::class, true));
+    }
+
+    /** @throws Throwable */
+    public function testImplementsProviderInterface(): void
+    {
+        self::assertTrue(is_a(LibrariesIoProvider::class, ProviderInterface::class, true));
     }
 
     /** @throws Throwable */
