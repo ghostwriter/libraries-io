@@ -7,7 +7,7 @@
     "state": "open"
 "repository":
   "name": "libraries-io"
-  "description": "A libraries.io API Client for PHP"
+  "description": "[WIP] A libraries.io API Client for PHP"
   "homepage": "https://github.com/ghostwriter/libraries-io"
   "default_branch": "0.1.x"
   "allow_auto_merge": true
