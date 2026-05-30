@@ -17,7 +17,7 @@ final readonly class ApiToken implements ApiTokenInterface
         #[SensitiveParameter]
         private string $token,
     ) {
-        if (1 !== preg_match('#^[a-z0-9]{40}$#iu', $token)) {
+        if (1 !== preg_match('#^[a-z0-9]+$#iu', $token)) {
             throw new InvalidAPIKeyException(sprintf(
                 'The API key "%s" is invalid. %s',
                 $token,
