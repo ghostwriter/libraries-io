@@ -7,6 +7,9 @@ namespace Ghostwriter\LibrariesIo;
 use Ghostwriter\Clock\Interface\ClockInterface;
 use Ghostwriter\Container\Container;
 use Ghostwriter\EventDispatcher\Interface\EventDispatcherInterface;
+use Ghostwriter\LibrariesIo\EventDispatcher\Event\ErrorEvent;
+use Ghostwriter\LibrariesIo\EventDispatcher\Event\RequestEvent;
+use Ghostwriter\LibrariesIo\EventDispatcher\Event\ResponseEvent;
 use Ghostwriter\LibrariesIo\Exception\LibrariesIoClientException;
 use Ghostwriter\LibrariesIo\Interface\ApiTokenInterface;
 use Ghostwriter\LibrariesIo\Interface\BaseUriInterface;
@@ -119,33 +122,22 @@ final readonly class LibrariesIoClient implements LibrariesIoClientInterface
 
     private function sendRequest(RequestInterface $request): ResponseInterface
     {
-        $this->eventDispatcher->dispatch($request);
+        $uuid = $request->getHeaderLine('X-Request-Id');
 
-        // TODO: Use request ID from the request and use it in the events.
-        // $requestId = $request->getHeaderLine('X-Request-Id');
-
-        //  $this->eventDispatcher->dispatch(
-        //      new RequestEvent($requestId, $createRequest)
-        //  );
+        $this->eventDispatcher->dispatch(RequestEvent::new(uuid: $uuid, request: $request));
 
         try {
             $response = $this->client->sendRequest($request);
 
-            //  $this->eventDispatcher->dispatch(
-            //      new ResponseEvent($requestId, $response)
-            //  );
+            $this->eventDispatcher->dispatch(ResponseEvent::new(uuid: $uuid, response: $response));
         } catch (Throwable $throwable) {
-            //  $this->eventDispatcher->dispatch(
-            //      new ErrorEvent($requestId, $request, $throwable)
-            //  );
+            $this->eventDispatcher->dispatch(ErrorEvent::new(uuid: $uuid, request: $request, throwable: $throwable));
 
             throw new LibrariesIoClientException(sprintf(
                 'An error occurred while sending the request: %s',
                 $throwable->getMessage()
             ), 255, $throwable);
         }
-
-        $this->eventDispatcher->dispatch($response);
 
         return $response;
     }
