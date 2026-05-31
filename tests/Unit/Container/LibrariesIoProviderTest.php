@@ -82,22 +82,4 @@ final class LibrariesIoProviderTest extends AbstractTestCase
         $provider = new LibrariesIoProvider();
         $provider->register($builder);
     }
-
-    private function getMethods(string $class, array $except = []): array
-    {
-        $reflectionClass = new ReflectionClass($class);
-
-        $methods = [];
-        foreach ($reflectionClass->getMethods() as $method) {
-            $name = $method->getName();
-
-            if (in_array($name, $except, true)) {
-                continue;
-            }
-
-            $methods[] = $name;
-        }
-
-        return $methods;
-    }
 }
